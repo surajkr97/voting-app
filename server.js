@@ -15,8 +15,8 @@ const userRoutes = require('./routes/userRoutes');
 const candidateRoutes = require('./routes/candidateRoutes');
 
 //Use the routers
-app.use('/user', userRoutes);
-app.use('/candidate', candidateRoutes);
+app.use('/api/user', userRoutes);
+app.use('/api/candidate', candidateRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
