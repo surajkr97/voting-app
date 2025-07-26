@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Candidate = require("../models/candidate");
 const User = require("../models/user");
-const { jwtAuthMiddleware, generateToken } = require("./../jwt");
+const { jwtAuthMiddleware } = require("./../jwt");
 const { find } = require("lodash");
 
 const checkAdminRole = async (userId) => {
@@ -128,7 +128,7 @@ router.post("/vote/:candidateID", jwtAuthMiddleware, async (req, res)=>{
     }
 
      //Update the candidate document to record the vote
-     candidate.votes.push({userId});
+     candidate.votes.push({ user: userId});
      candidate.voteCount++;
      await candidate.save();
 
